@@ -186,15 +186,13 @@ namespace WeddingPlanner.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Balance");
-
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasMaxLength(255);
 
-                    b.Property<double>("LineItemsTotal");
+                    b.Property<double?>("LineItemsTotal");
 
-                    b.Property<double>("Total");
+                    b.Property<double?>("Total");
 
                     b.HasKey("CategoryId");
 
@@ -211,7 +209,7 @@ namespace WeddingPlanner.Migrations
 
                     b.Property<double>("Cost");
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime?>("Date");
 
                     b.Property<string>("Notes");
 

@@ -54,9 +54,8 @@ namespace WeddingPlanner.Migrations
                     CategoryId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CategoryName = table.Column<string>(maxLength: 255, nullable: false),
-                    Total = table.Column<double>(nullable: false),
-                    LineItemsTotal = table.Column<double>(nullable: false),
-                    Balance = table.Column<double>(nullable: false)
+                    Total = table.Column<double>(nullable: true),
+                    LineItemsTotal = table.Column<double>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -176,7 +175,7 @@ namespace WeddingPlanner.Migrations
                     LineItemId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CategoryId = table.Column<int>(nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: true),
                     Notes = table.Column<string>(nullable: true),
                     Cost = table.Column<double>(nullable: false)
                 },

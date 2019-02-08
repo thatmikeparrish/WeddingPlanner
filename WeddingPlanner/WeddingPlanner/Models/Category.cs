@@ -17,16 +17,26 @@ namespace WeddingPlanner.Models
         public string CategoryName { get; set; }
 
         [Display(Name = "Total")]
-        public double Total { get; set; }
+        public double? Total { get; set; }
 
-        public double LineItemsTotal { get; set; }
+        public double? LineItemsTotal { get; set; }
 
-        public double Balance
+        public double? Balance
         {
             get
             {
-                return Total + LineItemsTotal;
-            }
+                if (LineItemsTotal != 0)
+                {
+                    return Total - LineItemsTotal;
+                }
+                else if (Total != 0)
+                {
+                    return Total;
+                } else
+                {
+                    return 0;
+                }
+            } 
         }
 
         public virtual ICollection<LineItem> LineItems { get; set; }
